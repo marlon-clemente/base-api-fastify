@@ -42,8 +42,8 @@ export const authenticateController = async (req: FastifyRequest, resp: FastifyR
 
     sendEmail(
       [user.email],
-      "Login em mcs.io",
-      "Você acabou de autenticar-se na plataforma mcs.io. Se não foi você, altere sua senha imediatamente."
+      "Login",
+      "Você acabou de autenticar-se."
     )
 
     await prisma.user.update({

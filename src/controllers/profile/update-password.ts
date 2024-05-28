@@ -33,11 +33,11 @@ export const updatePasswordController = async (req: FastifyRequest, resp: Fastif
     const passwordMatch = await hasValidatePassword(password, currentPassword?.password || "")
 
     if (!passwordMatch) {
-        return resp.status(400).send({ message: "PASSWORD_INCORRET" })
+        return resp.status(400).send({ code: "PASSWORD_INCORRECT" })
     }
 
     if (newPassword !== confirmNewPassword) {
-        return resp.status(400).send({ message: "PASSWORDS_DIFERENCES" })
+        return resp.status(400).send({ code: "PASSWORDS_DIFERENT" })
     }
 
     const hashedPassword = await hashPassword(newPassword)
@@ -51,7 +51,7 @@ export const updatePasswordController = async (req: FastifyRequest, resp: Fastif
         }
     })
 
-    resp.status(200).send({ message: "Senha atualizada com sucessos"})
+    resp.status(200).send({ message: "Senha atualizada com sucesso"})
   } catch (error) {
     resp.status(500).send({ error: "Internal Server Error" })
   }
