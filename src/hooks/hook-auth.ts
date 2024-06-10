@@ -9,9 +9,7 @@ export const hookAuth = async (req: FastifyRequest, resp: FastifyReply) => {
   try {
     const userVerificated = verifyAccessToken(accessToken)
     req.user = {
-      userId: userVerificated.userId,
-      name: userVerificated.name,
-      email: userVerificated.email,
+      userId: userVerificated.userId
     }
   } catch (error) {
     return resp.code(401).send({ error: "Unauthorized!" })
