@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node ./dist/server.js",
-    "build": "tsc && prisma generate && tsup src --output public"
+    "build": "tsc && tsup src --output public"
   },
   "prisma": {
     "seed": "ts-node -r tsconfig-paths/register --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
