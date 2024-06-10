@@ -8,13 +8,12 @@ import path from "path"
 import { authRoutes } from "./routes/auth-routes"
 import { statusRoutes } from "./routes/statusRoutes"
 
-import instrument from "@aspecto/opentelemetry"
 import { hookAuth } from "./hooks/hook-auth"
 import { meRoutes } from "./routes/me"
 import { profileRoutes } from "./routes/profile"
 import { userRoutes } from "./routes/user-route"
 
-instrument({ aspectoAuth: "791075d4-42b1-49a1-9f4c-99fad96270e2" })
+// instrument({ aspectoAuth: "791075d4-42b1-49a1-9f4c-99fad96270e2" })
 
 export const init = () => {
   const app = fastify()
